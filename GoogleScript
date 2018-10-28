@@ -1,0 +1,53 @@
+function doGet() {
+  const SECOND = 1;
+  const MINUTE = 60 * SECOND;
+  const HOUR = 60 * MINUTE;
+  const DAY = 24 * HOUR;
+  const WEEK = 7 * DAY;
+  
+  var _calendarName = 'abfalltermine', // the name of your Google Calendar with the waste entries
+      _checkInRate = 15 * MINUTE;
+  
+  return ContentService.createTextOutput(getOutput(_calendarName, _checkInRate));
+}
+
+function getOutput(calendarName, offset) {
+  return JSON.stringify(getResponse(calendarName, offset));
+}
+
+function getResponse(calendarName, offset) {
+  var cal = CalendarApp.getCalendarsByName(calendarName)[0];
+  
+  if (!cal) {
+    return {status: 'error', message: 'Error, calendar "' + calendarName + '" does not exist.'};
+  }
+  
+  var now = new Date(),
+      later = new Date();
+  
+  later.setSeconds(now.getSeconds() + offset);
+  var MILLIS_PER_DAY = 1000 * 60 * 60 * 24
+  var now = new Date()
+  var tomorrow = new Date(now.getTime() + MILLIS_PER_DAY);
+  var items = cal.getEventsForDay(tomorrow),
+      length = items.length,
+      response = {};
+  
+  if (length >= 1){
+       if (length > 0){ response.title1 = getEvent(items[0]); }
+    if (length > 1) { response.title2 = getEvent(items[1]); } else { response.title2 = "nothing"; }
+     }
+  else {
+    response.title1 = "nothing";
+    response.title2 = "nothing";
+  }
+  
+  return {status: 'success', data: response , hour: now.getHours()};
+}
+
+function getEvent(item) {
+      title = item.getTitle(),
+//        response = {title: title};
+  response = title;
+  return response;
+}
