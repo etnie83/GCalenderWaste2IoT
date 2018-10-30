@@ -10,6 +10,8 @@
 #include <ESP8266WiFi.h>
 #include "HTTPSRedirect.h"
 #include <ArduinoJson.h>
+#include <WiFiClientSecure.h>
+#include <TelegramBot.h>
 #include "userconfig.h"                    // Fixed user configurable options
 
 // =========Definitions==============
@@ -20,9 +22,17 @@
 #define HOUR                  (unsigned int) 60L*MINUTE
 #define DAY                   (unsigned long) 24L*HOUR
 
+// ==========Telegram=================
+// Initialize Telegram BOT
+#ifdef TELEGRAM
+const char BotToken[] = TELEGRAMTOKEN;
+WiFiClientSecure net_ssl;
+TelegramBot bot (BotToken, net_ssl);
+#endif
+
 // ====================================
 #define DEFAULT_POLLING_RATE  5*MINUTE
-#define DEBUG                 1
+
 // ====================================
 
 #ifndef MY_LANGUAGE
@@ -50,6 +60,9 @@
 // Global variables
 HTTPSRedirect* client = NULL;
 int _attempts = 0;
+int telegramsend = 0;
+String _spelledtitle = "FIRST ENTRY";      //Placeholder
+String _spelledtitle2 = "SECOND ENTRY";      //Placeholder
 String _title = "FIRST ENTRY";      //Placeholder
 String _title2 = "SECOND ENTRY";    //Placeholder
 int _hour = 0;
@@ -60,6 +73,10 @@ void setup() {
   serialInit();
   // Wifi initialize
   wifiInit();
+#ifdef TELEGRAM
+  // Telegram initialize
+  bot.begin();
+#endif
 #ifdef NEOPIXEL
   pixels.begin(); // This initializes the NeoPixel library.
 #endif
@@ -75,6 +92,7 @@ void loop() {
     } else nothing();
   } else nothing();
 
+telegram();
 //   delay(15000);
   delay(900000); // jede 15 Minuten
 //  sleep();
@@ -93,13 +111,24 @@ void process(String response) {
           {
             _title2 = _title;
           }
+        if (_title == D_WASTE_BLUE) {_spelledtitle = SPELLED_WASTE_BLUE;}
+        if (_title == D_WASTE_GREEN) {_spelledtitle = SPELLED_WASTE_GREEN;}
+        if (_title == D_WASTE_YELLOW) {_spelledtitle = SPELLED_WASTE_YELLOW;}
+        if (_title == D_WASTE_GREY) {_spelledtitle = SPELLED_WASTE_GREY;}
+
+        if (_title2 == D_WASTE_BLUE) {_spelledtitle2 = SPELLED_WASTE_BLUE;}
+        if (_title2 == D_WASTE_GREEN) {_spelledtitle2 = SPELLED_WASTE_GREEN;}
+        if (_title2 == D_WASTE_YELLOW) {_spelledtitle2 = SPELLED_WASTE_YELLOW;}
+        if (_title2 == D_WASTE_GREY) {_spelledtitle2 = SPELLED_WASTE_GREY;}
+
         #if DEBUG
           Serial.print(F(D_FIRST_WASTE_DETECTED)); Serial.println(_title);
           Serial.print(F(D_SECOND_WASTE_DETECTED)); Serial.println(_title2);
           Serial.print(F(D_ACTUAL_HOUR)); Serial.println(_hour);
         #endif
+
 #ifdef NEOPIXEL
-  if (_hour >= 13 && _hour <=23)
+  if (_hour >= starttime && _hour <=endtime)
     {
       if (_title != "nothing")
         {

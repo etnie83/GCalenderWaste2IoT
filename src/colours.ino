@@ -8,18 +8,18 @@ void nothing(void) {
 }
 // ==========BLUE==============
 void blue(void) {
-    for(int i=0;i<(NUMPIXELS/2);i=i+2){
-
-    pixels.setPixelColor(i, pixels.Color(0,35,255)); // Moderately bright green color.
-    pixels.show(); // This sends the updated pixel color to the hardware.
-    }
+    for(int i=0;i<(NUMPIXELS/2);i=i+2)
+      {
+        pixels.setPixelColor(i, pixels.Color(0,35,255)); // Moderately bright green color.
+        pixels.show(); // This sends the updated pixel color to the hardware.
+      }
 }
 void blue2(void) {
-    for(int i=(NUMPIXELS/2);i<NUMPIXELS;i=i+2){
-
-    pixels.setPixelColor(i, pixels.Color(0,35,255)); // Moderately bright green color.
-    pixels.show(); // This sends the updated pixel color to the hardware.
-    }
+    for(int i=(NUMPIXELS/2);i<NUMPIXELS;i=i+2)
+      {
+        pixels.setPixelColor(i, pixels.Color(0,35,255)); // Moderately bright green color.
+        pixels.show(); // This sends the updated pixel color to the hardware.
+      }
 }
 // ==========YELLOW==============
 void yellow(void) {

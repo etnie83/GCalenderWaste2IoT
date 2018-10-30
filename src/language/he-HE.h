@@ -22,10 +22,18 @@
 //#############
 // Waste titles
 //#############
-#define D_WASTE_BLUE   "Blau Tonn"
-#define D_WASTE_GREEN  "De Griene"
-#define D_WASTE_YELLOW "Gelb Tonn"
-#define D_WASTE_GREY   "De Rest Mill"
+#define D_WASTE_BLUE   "Blaue Tonne"
+#define D_WASTE_GREEN  "Bioabfall"
+#define D_WASTE_YELLOW "Gelbe Tonne"
+#define D_WASTE_GREY   "Restabfall"
+
+#define SPELLED_WASTE_BLUE   "Blau Tonn"
+#define SPELLED_WASTE_GREEN  "De Griene"
+#define SPELLED_WASTE_YELLOW "Gelb Tonn"
+#define SPELLED_WASTE_GREY   "De Rest Mill"
+
+#define AND "un"
+#define TOMORROW " is moje dro!"
 
 #define D_FIRST_WASTE_DETECTED "De erste erkannte Müll: "
 #define D_SECOND_WASTE_DETECTED "De zwote erkannte Müll: "

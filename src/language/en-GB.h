@@ -27,6 +27,14 @@
 #define D_WASTE_YELLOW "Yellow Waste"
 #define D_WASTE_GREY   "Grey Waste"
 
+#define SPELLED_WASTE_BLUE   "Blue Waste"
+#define SPELLED_WASTE_GREEN  "Green Waste"
+#define SPELLED_WASTE_YELLOW "Yellow Waste"
+#define SPELLED_WASTE_GREY   "Grey Waste"
+
+#define AND "and"
+#define TOMORROW " on next day!"
+
 #define D_FIRST_WASTE_DETECTED "Erste Abfuhr erkannt: "
 #define D_SECOND_WASTE_DETECTED "Zweite Abfuhr erkannt: "
 
