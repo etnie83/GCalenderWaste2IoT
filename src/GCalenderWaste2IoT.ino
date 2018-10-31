@@ -130,40 +130,27 @@ void process(String response) {
     {
       if (_title != "nothing")
         {
-        if (_title == D_WASTE_BLUE){
-          blue();
-          }
-        else if (_title == D_WASTE_GREEN){
-          green();
-          }
-        else if (_title == D_WASTE_YELLOW){
-          yellow();
-          }
-        else if (_title == D_WASTE_GREY){
-          grey();
-          }
+          if (_title == D_WASTE_BLUE) { colourchange(0,35,255,1); }
+    else  if (_title == D_WASTE_GREEN) { colourchange(0,150,0,1); }
+    else  if (_title == D_WASTE_YELLOW) { colourchange(255,255,0,1); }
+    else  if (_title == D_WASTE_GREY) { colourchange(160,160,160,1); }
         }
-      else
+        else
           {
             nothing();
           }
-	  if (_title2 != "nothing")
-      {
-        if (_title2 == D_WASTE_BLUE){
-          blue2();
-          }
-        else if (_title2 == D_WASTE_GREEN){
-          green2();
-          }
-        else if (_title2 == D_WASTE_YELLOW){
-          yellow2();
-          }
-        else if (_title2 == D_WASTE_GREY){
-          grey2();
-          }
+    	if (_title2 != "nothing")
+        {
+              if (_title2 == D_WASTE_BLUE) { colourchange(0,35,255,2); }
+        else  if (_title2 == D_WASTE_GREEN) { colourchange(0,150,0,2); }
+        else  if (_title2 == D_WASTE_YELLOW) { colourchange(255,255,0,2); }
+        else  if (_title2 == D_WASTE_GREY) { colourchange(160,160,160,2); }
+        }
+        else
+        {
+          nothing();
+        }
       }
-      else {nothing();}
-    }
     else
       {
         nothing();
