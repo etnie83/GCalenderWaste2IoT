@@ -107,10 +107,9 @@ void process(String response) {
       _hour = root["hour"];
       String _title = root["data"]["title1"];
       String _title2 = root["data"]["title2"];
-        if (_title2 == "nothing")
-          {
-            _title2 = _title;
-          }
+
+        if (_title2 == "nothing") {_title2 = _title;}
+
         if (_title == D_WASTE_BLUE) {_spelledtitle = SPELLED_WASTE_BLUE;}
         if (_title == D_WASTE_GREEN) {_spelledtitle = SPELLED_WASTE_GREEN;}
         if (_title == D_WASTE_YELLOW) {_spelledtitle = SPELLED_WASTE_YELLOW;}
@@ -126,9 +125,8 @@ void process(String response) {
           Serial.print(F(D_SECOND_WASTE_DETECTED)); Serial.println(_title2);
           Serial.print(F(D_ACTUAL_HOUR)); Serial.println(_hour);
         #endif
-
 #ifdef NEOPIXEL
-  if (_hour >= starttime && _hour <=endtime)
+  if (_hour >= starttime && _hour <= endtime)
     {
       if (_title != "nothing")
         {
@@ -164,10 +162,7 @@ void process(String response) {
           grey2();
           }
       }
-      else
-          {
-            nothing();
-          }
+      else {nothing();}
     }
     else
       {

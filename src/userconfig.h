@@ -10,6 +10,7 @@
   // ATTENTION: The Definition of the GoogleCalendar Entrys must edited in the Localization-File for autodetect the Waste Bin
 //#define MY_LANGUAGE            de-DE           // German in Germany
 //#define MY_LANGUAGE            he-HE           // Platt in Hessisch_Platt
+//#define MY_LANGUAGE            en-GB           // English in England
 
 // -- Time to Control --------------------------------
 // Start- and End- time to check the waste for the time
@@ -19,12 +20,12 @@ int endtime =                 23;
 #define DEBUG                 1
 
 // -- WLAN Settings -------------------------------
-#define SSID                  "YOUR-SSID"
-#define PASSWORD              "YOUR-PASSWORD"
+#define SSID                  "YOURSSID"
+#define PASSWORD              "YOURPASSWORD"
 
 //  -- Telegram Settings ------------------
 #define TELEGRAM              // Uncomment to activate Telegram
-#define TELEGRAMTOKEN         "xxxxxxxxx"
+#define TELEGRAMTOKEN         "TELEGRAMTOKEN"
 
 //  -- Script Settings of Google ------------------
 #define SCRIPT_ID             "AKfycbzT_nKD6v1HU5JYh3CK_malBFk5v_PT6u_hVoasiA7XpMLHZYQ" // Edit this Key to your own from google script

@@ -22,7 +22,7 @@
 //#############
 // Waste titles
 //#############
-#define D_WASTE_BLUE   "Blaue Tonne"
+#define D_WASTE_BLUE   "Altpapier"
 #define D_WASTE_GREEN  "Bioabfall"
 #define D_WASTE_YELLOW "Gelbe Tonne"
 #define D_WASTE_GREY   "Restabfall"
@@ -38,11 +38,11 @@
 #define D_FIRST_WASTE_DETECTED "De erste erkannte Müll: "
 #define D_SECOND_WASTE_DETECTED "De zwote erkannte Müll: "
 
-#define D_ACTUAL_HOUR "Welche Stund ham me: "
+#define D_ACTUAL_HOUR "Welch Stund ham me: "
 
 //#############
 // WLAN
 //#############
-#define D_WLAN_START "Des Ding ohne Kabel git o"
+#define D_WIFI_START "Des Ding ohne Kabel git o"
 
 #endif  // _LANGUAGE_DE_DE_H_

@@ -22,18 +22,18 @@
 //#############
 // Waste titles
 //#############
-#define D_WASTE_BLUE   "Blaue Tonne"
+#define D_WASTE_BLUE   "Altpapier"
 #define D_WASTE_GREEN  "Bioabfall"
 #define D_WASTE_YELLOW "Gelbe Tonne"
 #define D_WASTE_GREY   "Restabfall"
 
-#define SPELLED_WASTE_BLUE   "Blaue Tonne"
+#define SPELLED_WASTE_BLUE   "Altpapier"
 #define SPELLED_WASTE_GREEN  "Bioabfall"
 #define SPELLED_WASTE_YELLOW "Gelbe Tonne"
 #define SPELLED_WASTE_GREY   "Restabfall"
 
 #define AND "und"
-#define TOMORROW ' ist morgen dran!'
+#define TOMORROW " ist morgen dran!"
 
 #define D_FIRST_WASTE_DETECTED "Erste Abfuhr erkannt: "
 #define D_SECOND_WASTE_DETECTED "Zweite Abfuhr erkannt: "
